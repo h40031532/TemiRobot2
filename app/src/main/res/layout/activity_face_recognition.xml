@@ -31,7 +31,7 @@
 
     </androidx.camera.view.PreviewView>
 
-    <tw.com.temirobot.GraphicOverlay
+    <tw.com.temirobot2.GraphicOverlay
         android:id="@+id/graphic_overlay"
         android:layout_width="match_parent"
         android:layout_height="0dp"

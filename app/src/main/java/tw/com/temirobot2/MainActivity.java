@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements
     private static float value = 0;   // 聲音分貝值
 
     private int timerval = 0;
-    private int y = 1;
+    private int y = 0;
     private TimerTask task = null;
     private Timer timer = null;
     private static final long PERIOD_DAY = 24 * 60 * 60 * 1000;
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements
         robot = Robot.getInstance();
 
         checkPermission();
-        y = 1;
+        y = 0;
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -329,6 +329,7 @@ public class MainActivity extends AppCompatActivity implements
                 mDatabase.child("face").child("temi1").child("welcome").child("py").setValue(false);
 //                bgwhite.setVisibility(View.VISIBLE);
 //                gifImageView.setVisibility(View.VISIBLE);
+                y = 1;
                 audioname = dateFormat.format(calendar.getTime());
                 startrec(audioname);
                 robot.goTo(place2);
@@ -1113,7 +1114,7 @@ public class MainActivity extends AppCompatActivity implements
         //String name = null;
         //float scaleX = (float) previewView.getWidth() / (float) inputImage.getHeight();
         //float scaleY = (float) previewView.getHeight() / (float) inputImage.getWidth();
-        //if (faces.size() > 0) {
+        if (faces.size() > 0) {
 
 //            // get first face detected
 //            Face face = faces.get(0);
@@ -1136,7 +1137,7 @@ public class MainActivity extends AppCompatActivity implements
                 y++;
                 uploadImage(bitmapImage);
             }
-        //}
+        }
     }
 
     public void uploadImage(Bitmap bitmap) {
@@ -1144,7 +1145,7 @@ public class MainActivity extends AppCompatActivity implements
         // Create a storage reference from our app
         StorageReference storageRef = storage.getReference();
 
-        StorageReference checkinRef = storageRef.child("images").child("unknown").child("unknown2.jpg");
+        StorageReference checkinRef = storageRef.child("images").child("unknown").child("unknown1.jpg");
 
 //        UploadTask uploadTask = checkinRef.putFile(file);
 

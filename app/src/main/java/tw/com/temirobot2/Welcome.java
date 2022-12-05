@@ -137,7 +137,7 @@ public class Welcome extends AppCompatActivity implements
 
         mDatabase.child("face").child("temi1").child("welcome").child("py").setValue(true);
         mDatabase.child("face").child("temi1").child("welcome").child("and").setValue(false);
-        mDatabase.child("face").child("temi1").child("welcome").child("id").setValue("1");
+        mDatabase.child("face").child("temi1").child("welcome").child("id").setValue("");
 
         previewView = findViewById(R.id.previewView);
         previewView.setScaleType(PreviewView.ScaleType.FIT_CENTER);
@@ -393,11 +393,11 @@ public class Welcome extends AppCompatActivity implements
 //    }
 
     public void uploadImage(Bitmap bitmap) {
-        Log.d(TAG_f, "list: upload");
+        Log.d(TAG_f, "list:3 Welcome upload");
         // Create a storage reference from our app
         StorageReference storageRef = storage.getReference();
 
-        StorageReference checkinRef = storageRef.child("images").child("unknown").child("unknown2.jpg");
+        StorageReference checkinRef = storageRef.child("images").child("unknown").child("unknown1.jpg");
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
@@ -410,7 +410,7 @@ public class Welcome extends AppCompatActivity implements
             public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                 double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
                 Log.d(TAG_f, "list: Upload is " + progress + "% done");
-                if (progress >= 100){
+                if (progress >= 100.0){
                     Intent it = new Intent(Welcome.this, Welcome2.class);
                     startActivity(it);
                     finish();
@@ -497,7 +497,7 @@ public class Welcome extends AppCompatActivity implements
 
     private void onSuccessListener(List<Face> faces, InputImage inputImage) {
         System.out.println("list:2 onSuccessListener");
-        mDatabase.child("face").child("temi1").child("welcome").child("id").setValue("1");
+        mDatabase.child("face").child("temi1").child("welcome").child("id").setValue("");
         Rect boundingBox = null;
         //String name = null;
         //float scaleX = (float) previewView.getWidth() / (float) inputImage.getHeight();
@@ -519,7 +519,7 @@ public class Welcome extends AppCompatActivity implements
 //            System.out.println("list:2 onSuccessListener4: " + inputImage.getMediaImage());
 //            System.out.println("list:2 bitmap4: " + bitmap);
             if (x == 1){
-            uploadImage(bitmapImage);
+                uploadImage(bitmapImage);
             }
             x++;
 
