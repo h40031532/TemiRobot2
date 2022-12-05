@@ -139,8 +139,6 @@ public class Patrol extends AppCompatActivity implements
         Bundle bundle = getIntent().getExtras();
         place = bundle.getString("place");
 
-
-
     }
 
     @Override
