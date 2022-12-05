@@ -125,11 +125,11 @@ public class Regis extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         storage = FirebaseStorage.getInstance();
 
-        mDatabase.child("face").child("temi1").child("regis").child("and").setValue(false);
-        mDatabase.child("face").child("temi1").child("regis").child("py").setValue(true);
-        mDatabase.child("face").child("temi1").child("patrol").child("py").setValue(false);
-        mDatabase.child("face").child("temi1").child("checkin").child("py").setValue(false);
-        mDatabase.child("face").child("temi1").child("welcome").child("py").setValue(false);
+        mDatabase.child("face").child("temi2").child("regis").child("and").setValue(false);
+        mDatabase.child("face").child("temi2").child("regis").child("py").setValue(true);
+        mDatabase.child("face").child("temi2").child("patrol").child("py").setValue(false);
+        mDatabase.child("face").child("temi2").child("checkin").child("py").setValue(false);
+        mDatabase.child("face").child("temi2").child("welcome").child("py").setValue(false);
 
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,7 +148,7 @@ public class Regis extends AppCompatActivity {
                 // Set up the buttons
                 builder.setPositiveButton("確認", (dialog, which) -> {
                     //Toast.makeText(context, input.getText().toString(), Toast.LENGTH_SHORT).show();
-                    mDatabase.child("face").child("temi1").child("regis").child("id").setValue(input.getText().toString().trim());
+                    mDatabase.child("face").child("temi2").child("regis").child("id").setValue(input.getText().toString().trim());
                     System.out.println("list:3 addface id: " + input.getText().toString().trim() + ", x1 = "+ x);
                     x = 2;
                     System.out.println("list:3 addface id: " + input.getText().toString().trim() + ", x2 = "+ x);
@@ -306,8 +306,8 @@ public class Regis extends AppCompatActivity {
 //    }
 
     public void uploadImage(Bitmap bitmap) {
-        mDatabase.child("face").child("temi1").child("regis").child("and").setValue(false);
-        mDatabase.child("face").child("temi1").child("regis").child("py").setValue(true);
+        mDatabase.child("face").child("temi2").child("regis").child("and").setValue(false);
+        mDatabase.child("face").child("temi2").child("regis").child("py").setValue(true);
         // Create a storage reference from our app
         StorageReference storageRef = storage.getReference();
         System.out.println("list:3 upload input2: " + input2 + ", x3 = "+ x);

@@ -323,10 +323,10 @@ public class MainActivity extends AppCompatActivity implements
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                mDatabase.child("face").child("temi1").child("patrol").child("py").setValue(true);
-                mDatabase.child("face").child("temi1").child("checkin").child("py").setValue(false);
-                mDatabase.child("face").child("temi1").child("regis").child("py").setValue(false);
-                mDatabase.child("face").child("temi1").child("welcome").child("py").setValue(false);
+                mDatabase.child("face").child("temi2").child("patrol").child("py").setValue(true);
+                mDatabase.child("face").child("temi2").child("checkin").child("py").setValue(false);
+                mDatabase.child("face").child("temi2").child("regis").child("py").setValue(false);
+                mDatabase.child("face").child("temi2").child("welcome").child("py").setValue(false);
 //                bgwhite.setVisibility(View.VISIBLE);
 //                gifImageView.setVisibility(View.VISIBLE);
                 y = 1;
@@ -349,23 +349,23 @@ public class MainActivity extends AppCompatActivity implements
 
     public void DBTime() {
         List<String> patrolid = new ArrayList<>();
-        patrolid.add("11");
-        patrolid.add("12");
-        patrolid.add("13");
-        patrolid.add("21");
-        patrolid.add("22");
-        patrolid.add("23");
-        patrolid.add("31");
-        patrolid.add("32");
-        patrolid.add("33");
-        patrolid.add("41");
-        patrolid.add("42");
-        patrolid.add("43");
+        patrolid.add("51");
+        patrolid.add("52");
+        patrolid.add("53");
+        patrolid.add("61");
+        patrolid.add("62");
+        patrolid.add("63");
+        patrolid.add("71");
+        patrolid.add("72");
+        patrolid.add("73");
+        patrolid.add("81");
+        patrolid.add("82");
+        patrolid.add("83");
         System.out.println(patrolid);
         String strpatrol2 = "";
         for (String strpatrol : patrolid) {
             strpatrol2 = strpatrol;
-            DatabaseReference hrsRef = database.getReference("/temi1/" + strpatrol2 + "/hrs");
+            DatabaseReference hrsRef = database.getReference("/temi2/" + strpatrol2 + "/hrs");
             String finalStrpatrol = strpatrol2;
             hrsRef.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -375,7 +375,7 @@ public class MainActivity extends AppCompatActivity implements
                     String hrs = dataSnapshot.getValue(String.class);
                     Log.d("TAG", "hrs: " + hrs);
 
-                    DatabaseReference minRef = database.getReference("/temi1/" + finalStrpatrol + "/min");
+                    DatabaseReference minRef = database.getReference("/temi2/" + finalStrpatrol + "/min");
                     minRef.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -384,7 +384,7 @@ public class MainActivity extends AppCompatActivity implements
                             String min = dataSnapshot.getValue(String.class);
                             Log.d("TAG", "min: " + min);
 
-                            DatabaseReference placeRef = database.getReference("/temi1/" + finalStrpatrol + "/place");
+                            DatabaseReference placeRef = database.getReference("/temi2/" + finalStrpatrol + "/place");
                             placeRef.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -784,7 +784,7 @@ public class MainActivity extends AppCompatActivity implements
                     if (file.exists())
                         file.delete();
                     System.out.println("list:3 t uploadAudio: " + audioname2);
-                    mDatabase.child("face").child("temi1").child("patrol").child("py").setValue(false);
+                    mDatabase.child("face").child("temi2").child("patrol").child("py").setValue(false);
                 }
             }
         }).addOnPausedListener(new OnPausedListener<UploadTask.TaskSnapshot>() {
@@ -1091,7 +1091,7 @@ public class MainActivity extends AppCompatActivity implements
     @SuppressLint("UnsafeOptInUsageError")
     private void analyze(@NonNull ImageProxy image) {
         System.out.println("list:2 analyze");
-        mDatabase.child("face").child("temi1").child("patrol").child("id").setValue("");
+        mDatabase.child("face").child("temi2").child("patrol").child("id").setValue("");
 
         if (image.getImage() == null) return;
 

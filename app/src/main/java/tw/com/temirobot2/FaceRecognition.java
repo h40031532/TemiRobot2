@@ -117,12 +117,12 @@ public class FaceRecognition extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         database = FirebaseDatabase.getInstance();
 
-        mDatabase.child("face").child("temi1").child("checkin").child("id").setValue("");
-        mDatabase.child("face").child("temi1").child("checkin").child("and").setValue(false);
-        mDatabase.child("face").child("temi1").child("checkin").child("py").setValue(true);
-        mDatabase.child("face").child("temi1").child("regis").child("py").setValue(false);
-        mDatabase.child("face").child("temi1").child("patrol").child("py").setValue(false);
-        mDatabase.child("face").child("temi1").child("welcome").child("py").setValue(false);
+        mDatabase.child("face").child("temi2").child("checkin").child("id").setValue("");
+        mDatabase.child("face").child("temi2").child("checkin").child("and").setValue(false);
+        mDatabase.child("face").child("temi2").child("checkin").child("py").setValue(true);
+        mDatabase.child("face").child("temi2").child("regis").child("py").setValue(false);
+        mDatabase.child("face").child("temi2").child("patrol").child("py").setValue(false);
+        mDatabase.child("face").child("temi2").child("welcome").child("py").setValue(false);
 
         previewView = findViewById(R.id.previewView);
         previewView.setScaleType(PreviewView.ScaleType.FIT_CENTER);

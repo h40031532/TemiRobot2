@@ -135,9 +135,9 @@ public class Welcome extends AppCompatActivity implements
         storage = FirebaseStorage.getInstance();
         database = FirebaseDatabase.getInstance();
 
-        mDatabase.child("face").child("temi1").child("welcome").child("py").setValue(true);
-        mDatabase.child("face").child("temi1").child("welcome").child("and").setValue(false);
-        mDatabase.child("face").child("temi1").child("welcome").child("id").setValue("");
+        mDatabase.child("face").child("temi2").child("welcome").child("py").setValue(true);
+        mDatabase.child("face").child("temi2").child("welcome").child("and").setValue(false);
+        mDatabase.child("face").child("temi2").child("welcome").child("id").setValue("");
 
         previewView = findViewById(R.id.previewView);
         previewView.setScaleType(PreviewView.ScaleType.FIT_CENTER);
@@ -497,7 +497,7 @@ public class Welcome extends AppCompatActivity implements
 
     private void onSuccessListener(List<Face> faces, InputImage inputImage) {
         System.out.println("list:2 onSuccessListener");
-        mDatabase.child("face").child("temi1").child("welcome").child("id").setValue("");
+        mDatabase.child("face").child("temi2").child("welcome").child("id").setValue("");
         Rect boundingBox = null;
         //String name = null;
         //float scaleX = (float) previewView.getWidth() / (float) inputImage.getHeight();

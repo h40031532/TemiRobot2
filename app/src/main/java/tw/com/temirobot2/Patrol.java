@@ -152,10 +152,10 @@ public class Patrol extends AppCompatActivity implements
         robot.goTo(place);
         startrec();
         startCamera();
-        mDatabase.child("face").child("temi1").child("patrol").child("py").setValue(true);
-        mDatabase.child("face").child("temi1").child("checkin").child("py").setValue(false);
-        mDatabase.child("face").child("temi1").child("regis").child("py").setValue(false);
-        mDatabase.child("face").child("temi1").child("welcome").child("py").setValue(false);
+        mDatabase.child("face").child("temi2").child("patrol").child("py").setValue(true);
+        mDatabase.child("face").child("temi2").child("checkin").child("py").setValue(false);
+        mDatabase.child("face").child("temi2").child("regis").child("py").setValue(false);
+        mDatabase.child("face").child("temi2").child("welcome").child("py").setValue(false);
     }
 
     @Override
@@ -185,7 +185,7 @@ public class Patrol extends AppCompatActivity implements
     @Override
     protected void onResume() {
         super.onResume();
-        DatabaseReference myRef2 = mDatabase.child("face").child("temi1").child("patrol").child("and");
+        DatabaseReference myRef2 = mDatabase.child("face").child("temi2").child("patrol").child("and");
         myRef2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -490,7 +490,7 @@ public class Patrol extends AppCompatActivity implements
 
                     }
 
-                    mDatabase.child("face").child("temi1").child("patrol").child("py").setValue(false);
+                    mDatabase.child("face").child("temi2").child("patrol").child("py").setValue(false);
                     Intent it = new Intent(Patrol.this,MainActivity.class);
                     startActivity(it);
                     finish();
@@ -720,7 +720,7 @@ public class Patrol extends AppCompatActivity implements
     @SuppressLint("UnsafeOptInUsageError")
     private void analyze(@NonNull ImageProxy image) {
         System.out.println("list:2 analyze");
-        mDatabase.child("face").child("temi1").child("patrol").child("id").setValue("");
+        mDatabase.child("face").child("temi2").child("patrol").child("id").setValue("");
 
         if (image.getImage() == null) return;
 

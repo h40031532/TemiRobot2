@@ -60,7 +60,7 @@ public class Regis2 extends AppCompatActivity {
 //                Boolean value1 = dataSnapshot.getValue(Boolean.class);
 //                Log.d("TAG", "Value1 is: " + value1);
 //                if (value1 == false) {
-            DatabaseReference myRef1 = database.getReference("/face/temi1/regis/py");
+            DatabaseReference myRef1 = database.getReference("/face/temi2/regis/py");
             myRef1.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -70,7 +70,7 @@ public class Regis2 extends AppCompatActivity {
                     Log.d("TAG", "Value1 is: " + value1);
 
                     if (value1 == false) {
-                        DatabaseReference myRef2 = database.getReference("/face/temi1/regis/and");
+                        DatabaseReference myRef2 = database.getReference("/face/temi2/regis/and");
                         myRef2.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {

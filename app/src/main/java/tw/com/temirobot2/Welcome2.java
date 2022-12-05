@@ -170,7 +170,7 @@ public class Welcome2 extends AppCompatActivity implements
     protected void onResume() {
         super.onResume();
         if (y < 10){
-            DatabaseReference myRef1 = database.getReference("/face/temi1/welcome/id");
+            DatabaseReference myRef1 = database.getReference("/face/temi2/welcome/id");
             myRef1.addValueEventListener(new ValueEventListener() {
                 //String value1 = "B0844230";//測試寫死用
                 @Override
@@ -183,9 +183,9 @@ public class Welcome2 extends AppCompatActivity implements
                     if (value1.trim().equals("Unknown")) {
                         y = 10;
                         //查無此人
-                        mDatabase.child("face").child("temi1").child("welcome").child("py").setValue(false);
-                        mDatabase.child("face").child("temi1").child("welcome").child("and").setValue(true);
-                        mDatabase.child("face").child("temi1").child("welcome").child("id").setValue("");
+                        mDatabase.child("face").child("temi2").child("welcome").child("py").setValue(false);
+                        mDatabase.child("face").child("temi2").child("welcome").child("and").setValue(true);
+                        mDatabase.child("face").child("temi2").child("welcome").child("id").setValue("");
                         Intent it = new Intent(Welcome2.this, Welcome.class);
                         startActivity(it);
                         finish();
@@ -197,9 +197,9 @@ public class Welcome2 extends AppCompatActivity implements
                     else if (value1.trim().equals("Failed")) {
                         y = 10;
                         //查無此人
-                        mDatabase.child("face").child("temi1").child("welcome").child("py").setValue(false);
-                        mDatabase.child("face").child("temi1").child("welcome").child("and").setValue(true);
-                        mDatabase.child("face").child("temi1").child("welcome").child("id").setValue("");
+                        mDatabase.child("face").child("temi2").child("welcome").child("py").setValue(false);
+                        mDatabase.child("face").child("temi2").child("welcome").child("and").setValue(true);
+                        mDatabase.child("face").child("temi2").child("welcome").child("id").setValue("");
                         Intent it = new Intent(Welcome2.this, Welcome.class);
                         startActivity(it);
                         finish();
@@ -207,8 +207,8 @@ public class Welcome2 extends AppCompatActivity implements
                     else{
                         y = 10;
                         //辨識到人
-                        mDatabase.child("face").child("temi1").child("welcome").child("py").setValue(false);
-                        mDatabase.child("face").child("temi1").child("welcome").child("and").setValue(true);
+                        mDatabase.child("face").child("temi2").child("welcome").child("py").setValue(false);
+                        mDatabase.child("face").child("temi2").child("welcome").child("and").setValue(true);
                         //去抓 value1(辨識到的這個人)
                         DatabaseReference myRef2 = database.getReference("/user/"+value1+"/greet");
 
@@ -232,7 +232,7 @@ public class Welcome2 extends AppCompatActivity implements
                         });
 
                         robot.goTo("labin");
-                        mDatabase.child("face").child("temi1").child("welcome").child("id").setValue("");
+                        mDatabase.child("face").child("temi2").child("welcome").child("id").setValue("");
                     }
                     System.out.println("list: value1 = " + value1);
                     Log.d("TAG", "Value1 is: " + value1);

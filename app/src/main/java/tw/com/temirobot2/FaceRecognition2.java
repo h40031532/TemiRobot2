@@ -62,7 +62,7 @@ public class FaceRecognition2 extends AppCompatActivity {
         super.onResume();
         System.out.println("list:3 y = " + y);
         if (y < 10){
-            DatabaseReference myRef1 = database.getReference("/face/temi1/checkin/id");
+            DatabaseReference myRef1 = database.getReference("/face/temi2/checkin/id");
             myRef1.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -72,8 +72,8 @@ public class FaceRecognition2 extends AppCompatActivity {
                     if (value1.trim().equals("Unknown")) {
                         y = 10;
                         //查無此人
-                        mDatabase.child("face").child("temi1").child("checkin").child("py").setValue(false);
-                        mDatabase.child("face").child("temi1").child("checkin").child("and").setValue(false);
+                        mDatabase.child("face").child("temi2").child("checkin").child("py").setValue(false);
+                        mDatabase.child("face").child("temi2").child("checkin").child("and").setValue(false);
                         final AlertDialog.Builder builder = new AlertDialog.Builder(FaceRecognition2.this);
                         builder.setTitle("請問是否要註冊照片?");
 
@@ -94,8 +94,8 @@ public class FaceRecognition2 extends AppCompatActivity {
                     else if (value1.trim().equals("Failed")){
                         y = 10;
                         //辨識失敗
-                        mDatabase.child("face").child("temi1").child("checkin").child("py").setValue(true);
-                        mDatabase.child("face").child("temi1").child("checkin").child("and").setValue(false);
+                        mDatabase.child("face").child("temi2").child("checkin").child("py").setValue(true);
+                        mDatabase.child("face").child("temi2").child("checkin").child("and").setValue(false);
                         Intent it = new Intent(FaceRecognition2.this,FaceRecognition.class);
                         startActivity(it);
                         finish();
@@ -107,8 +107,8 @@ public class FaceRecognition2 extends AppCompatActivity {
                     else {
                         y = 10;
                         //辨識到人
-                        mDatabase.child("face").child("temi1").child("checkin").child("py").setValue(false);
-                        mDatabase.child("face").child("temi1").child("checkin").child("and").setValue(false);
+                        mDatabase.child("face").child("temi2").child("checkin").child("py").setValue(false);
+                        mDatabase.child("face").child("temi2").child("checkin").child("and").setValue(false);
                         Intent it = new Intent();
                         it.setClass(FaceRecognition2.this, Todo.class);
                         Bundle bundle = new Bundle();
